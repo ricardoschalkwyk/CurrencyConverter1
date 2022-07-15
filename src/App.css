@@ -2,19 +2,18 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-body {
+  background-color: #3c3c3e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +23,55 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card-wrapper {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  transition: transform 0.25s ease;
+}
+
+.card.front {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  border: solid;
+
+  transform: rotateY(180deg);
+  z-index: 0;
+}
+
+.card.back {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  border: solid;
+  background-color: #999;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: url("https://img.freepik.com/premium-vector/symbols-suits-card-seamless-pattern-background_153454-661.jpg?w=1380")
+    repeat;
+  background-size: cover;
+}
+
+.card.f-flipped {
+  transform: rotateY(0deg);
+  z-index: 1;
+}
+
+.card.b-flipped {
+  transform: rotateY(180deg);
+  z-index: 0;
+}
+/* End */
+
+.App-body select {
+  margin: 6px;
+  border-radius: 10px;
+}
+
+.App-body input {
+  border: solid rgb(85, 185, 180);
+  border-radius: 20px;
 }
